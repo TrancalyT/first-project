@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="gestionnaire">
+    <app-gestionnaire (addedVoiture)="addVoitureToList($event)"></app-gestionnaire>
+  </div>
+  <div class="garage">
+    <h1>GARAGE</h1>
+
+    <h3>Liste des véhicules</h3>
+    <br/>
+    <!-- CUSTOM PROPERTY BINDING -->
+    <app-voiture *ngFor="let voiture of voitures" [theVoiture]="voiture" (selectedCar)="getSelectedVoiture($event)"></app-voiture>
+  </div>
+  <div class="detail">
+    <app-detailVoiture [selectedVoiture]="selectedVoitureToPush"></app-detailVoiture>
+  </div>
+</div>

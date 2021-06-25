@@ -1,0 +1,18 @@
+<h1>GESTIONNAIRE</h1>
+
+<div class="row g-6  align-items-end justify-content-center">
+  <div class="col-3">
+    <label class="form-label" for="addMarque">Marque du véhicule</label>
+    <input class="form-control" id="addMarque" type="text" placeholder="Entrez la marque de véhicule" [(ngModel)]="newMarque">
+  </div>
+  <div class="col-3">
+    <label class="form-label" for="addModele">Modèle du véhicule</label>
+    <input class="form-control" id="addModele" type="text" placeholder="Entrez le modèle du véhicule" [(ngModel)]="newModele">
+  </div>
+</div>
+<div class="row g-3 justify-content-center p-3">
+    <button (click)="ajouterVoiture()" class="btn btn-primary">Ajouter</button>
+</div>
+<div class="row g-3 justify-content-center">
+  <p style="color: tomato">{{ action }}</p>
+</div>

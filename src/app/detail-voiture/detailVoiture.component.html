@@ -1,0 +1,40 @@
+<div *ngIf='selectedVoiture; else nothingToShow'>
+  <h1>DETAIL DU VEHICULE</h1>
+
+  <h3>{{ selectedVoiture.marque }} {{ selectedVoiture.modele }}</h3>
+  
+  <div class="container p-3">
+        <p>
+          La voiture est démarée :
+          <span class="badge" [ngStyle]="{backgroundColor : textColor, color : 'white'}">{{ nameStatus }}</span>
+        </p>
+        <p>
+          Nombre de kilomètres restants : 
+          <span class="badge" [ngStyle]="{backgroundColor : textColor, color : 'white'}">environ {{ kilometre }}km restants</span>
+        </p>
+        <p>
+          Niveau d'essence :
+          <span class="badge" [ngStyle]="{backgroundColor : essenceColor, color : 'white'}">{{ essence }}</span>
+        </p>
+        <p>
+          Niveau d'huile : 
+          <span class="badge" [ngStyle]="{backgroundColor : huileColor, color : 'white'}">{{ huile }}</span>
+        </p>
+    <div class="row justify-content-center">
+      <button (click)="statusVehicule()" [ngClass]="{'btn': true, 'btn-success' : !status, 'btn-danger' : status}">
+        {{ buttonName }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #nothingToShow>
+  <h1>HALTE LA !</h1>
+  <h1 class="text-center"><span class="badge badge-danger">☠</span></h1>
+    <div class="alert alert-dark align-self-center">
+      <h4 class="alert-heading">⛔</h4>
+      <p>Faites d'abord votre choix !</p>
+      <hr>
+      <p>👈👈👈👈👈</p>
+    </div>
+</ng-template>

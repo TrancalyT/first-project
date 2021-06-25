@@ -1,0 +1,29 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "gestionnaire gestionnaire gestionnaire gestionnaire"
+      "garage garage detail detail"
+      "garage garage detail detail";
+  }
+  
+  .gestionnaire { 
+    grid-area: gestionnaire;
+    border : 1px solid;
+    padding: 20px;
+    }
+  
+  .garage { 
+      grid-area: garage;
+      border : 1px solid;
+      padding: 20px; 
+    }
+  
+  .detail { 
+      grid-area: detail;
+      border : 1px solid;
+      padding: 20px; 
+    }
