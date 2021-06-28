@@ -1,6 +1,6 @@
-<div *ngIf='selectedVoiture; else nothingToShow'>
-<!-- <div> -->
-  <h1>DETAIL DU VEHICULE</h1>
+<!-- <div *ngIf='selectedVoiture; else nothingToShow'> -->
+<div>
+  <h3>DETAIL DU VEHICULE</h3>
 
   <h3>{{ selectedVoiture.marque }} {{ selectedVoiture.modele }}</h3>
   
@@ -30,7 +30,7 @@
   </div>
 </div>
 
-<ng-template #nothingToShow>
+<!-- <ng-template #nothingToShow>
   <h1>HALTE LA !</h1>
   <h1 class="text-center"><span class="badge badge-danger">☠</span></h1>
     <div class="alert alert-dark align-self-center">
@@ -39,4 +39,4 @@
       <hr>
       <p>👈👈👈👈👈</p>
     </div>
-</ng-template>
+</ng-template> -->
