@@ -2,6 +2,6 @@
 <ul class="list-group">
   <li class="list-group-item d-flex justify-content-between align-items-center" [ngClass]="{'list-group-item-success' : theVoiture.status, 'list-group-item-danger' : !theVoiture.status}" [ngStyle]="{color : 'black'}">
     {{ theVoiture.marque }} {{ theVoiture.modele }}
-    <button class="btn btn-dark rounded-pill" (click)="voitureToSelect()">Séléctionner</button>
+    <a routerLink="/detail" routerLinkActive="active"><button class="btn btn-dark rounded-pill" (click)="voitureToSelect()">Séléctionner</button></a>
   </li>
 </ul>

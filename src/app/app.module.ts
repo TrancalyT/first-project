@@ -6,6 +6,13 @@ import { GestionnaireComponent } from './gestionnaire/gestionnaire.component';
 import { DetailVoitureComponent } from './detail-voiture/detailVoiture.component';
 import { VoitureComponent } from './voiture/voiture.component';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { VoitureService } from 'src/Service/VoitureService';
+
+const ROUTES: Routes = [
+  { path: '', component: VoitureComponent},
+  { path: 'detail/:marque', component: DetailVoitureComponent },
+];
 
 @NgModule({
   declarations: [
@@ -16,9 +23,11 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  exports: [RouterModule],
+  providers: [VoitureService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

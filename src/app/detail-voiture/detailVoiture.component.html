@@ -1,4 +1,5 @@
 <div *ngIf='selectedVoiture; else nothingToShow'>
+<!-- <div> -->
   <h1>DETAIL DU VEHICULE</h1>
 
   <h3>{{ selectedVoiture.marque }} {{ selectedVoiture.modele }}</h3>
@@ -24,6 +25,7 @@
       <button (click)="statusVehicule()" [ngClass]="{'btn': true, 'btn-success' : !status, 'btn-danger' : status}">
         {{ buttonName }}
       </button>
+      <!-- <a routerLink="" routerLinkActive="active"><button class="btn btn-warning">Back to bolides</button></a> -->
     </div>
   </div>
 </div>

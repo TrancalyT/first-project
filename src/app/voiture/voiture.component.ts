@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter, OnInit } from "@angular/core";
 import { Voiture } from "src/Model/Voiture";
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-voiture',
@@ -7,6 +8,7 @@ import { Voiture } from "src/Model/Voiture";
   styleUrls: ['./voiture.component.css']
 })
 export class VoitureComponent {
+
   @Input()
   theVoiture:Voiture;
 
