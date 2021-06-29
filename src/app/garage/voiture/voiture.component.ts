@@ -12,10 +12,11 @@ export class VoitureComponent {
   @Input()
   theVoiture:Voiture;
 
-  @Output()
-  selectedCar: EventEmitter<Voiture> = new EventEmitter();
+  // Balise <a> avec RouterLink gère la transmission
+  // @Output()
+  // selectedCar: EventEmitter<Voiture> = new EventEmitter();
 
-  voitureToSelect(){
-    this.selectedCar.emit(this.theVoiture);
-  }
+  // voitureToSelect(){
+  //   this.selectedCar.emit(this.theVoiture);
+  // }
 }

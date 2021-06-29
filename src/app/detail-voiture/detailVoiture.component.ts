@@ -1,5 +1,7 @@
 import { Component, Input, OnInit} from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { Voiture } from "src/Model/Voiture";
+import { VoitureService } from "src/Service/VoitureService";
 
 @Component({
   selector: 'app-detailVoiture',
@@ -7,8 +9,13 @@ import { Voiture } from "src/Model/Voiture";
   styleUrls: ['./detailVoiture.component.css']
 })
 export class DetailVoitureComponent implements OnInit{
-  @Input()
+  
   selectedVoiture:Voiture;
+  constructor(private voitureService:VoitureService, private route:ActivatedRoute){}
+  
+  // LE Service gère la récupération de la voiture.
+  // @Input()
+  // selectedVoiture:Voiture;
   
   status: boolean = Math.random() > 0.5 ? true : false;
   nameStatus: string = this.status ? 'ON' : 'OFF';
@@ -21,31 +28,13 @@ export class DetailVoitureComponent implements OnInit{
   huileColor:string = this.kilometre > 2000 ? 'orange' : 'green';
 
   ngOnInit(){
-    
-  }
-
-  ngOnChanges(){
-    if(this.selectedVoiture){
-      this.status = this.selectedVoiture.status;
-      this.nameStatus = this.status ? 'ON' : 'OFF';
-      this.buttonName = this.status ? 'Eteindre le véhicule' : 'Allumer le véhicule';
-      this.textColor = this.status ? 'green' : 'crimson';
-      this.kilometre = Math.floor(Math.random() * 2500);
-      this.essence = this.kilometre > 700 ? 'OK' : 'FAIBLE';
-      this.huile = this.kilometre > 2000 ? 'To check' : 'OK';
-      this.essenceColor = this.kilometre > 700 ? 'green' : 'crimson';
-      this.huileColor = this.kilometre > 2000 ? 'orange' : 'green';
-    }
-  }
-
-  isEmptyObject(selectedVoiture) {
-    let name;
-    for (name in selectedVoiture) {
-        if (selectedVoiture.hasOwnProperty(name)) {
-            return false;
-        }
-    }
-    return true;
+    let marque = this.route.snapshot.params['marque'];
+    // SI LA ROUTE CHANGE ON REFRESH MARQUE
+    this.route.params.subscribe((params) => {
+      marque = params['marque'];
+      this.selectedVoiture = this.voitureService.getVoiturebyMarque(marque);
+    });
+    this.selectedVoiture = this.voitureService.getVoiturebyMarque(marque);
   }
 
   statusVehicule(){
@@ -63,5 +52,30 @@ export class DetailVoitureComponent implements OnInit{
       this.textColor = 'green';
     }
   }
+
+  // INUTILE CAR CHANGEMENT DE COMPONENT QUAND RETOUR AU VEHICULE
+  // ngOnChanges(){
+  //   if(this.selectedVoiture){
+  //     this.status = this.selectedVoiture.status;
+  //     this.nameStatus = this.status ? 'ON' : 'OFF';
+  //     this.buttonName = this.status ? 'Eteindre le véhicule' : 'Allumer le véhicule';
+  //     this.textColor = this.status ? 'green' : 'crimson';
+  //     this.kilometre = Math.floor(Math.random() * 2500);
+  //     this.essence = this.kilometre > 700 ? 'OK' : 'FAIBLE';
+  //     this.huile = this.kilometre > 2000 ? 'To check' : 'OK';
+  //     this.essenceColor = this.kilometre > 700 ? 'green' : 'crimson';
+  //     this.huileColor = this.kilometre > 2000 ? 'orange' : 'green';
+  //   }
+  // }
+
+  // isEmptyObject(selectedVoiture) {
+  //   let name;
+  //   for (name in selectedVoiture) {
+  //       if (selectedVoiture.hasOwnProperty(name)) {
+  //           return false;
+  //       }
+  //   }
+  //   return true;
+  // }
 
 }

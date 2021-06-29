@@ -12,7 +12,7 @@ import { GarageComponent } from './garage/garage.component';
 
 const ROUTES: Routes = [
   { path: '', component: GarageComponent},
-  { path: 'detail/:marque', component: DetailVoitureComponent },
+  { path: 'detail/:marque/:modele', component: DetailVoitureComponent },
 ];
 
 @NgModule({

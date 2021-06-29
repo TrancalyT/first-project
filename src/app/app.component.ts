@@ -19,14 +19,14 @@ export class AppComponent implements OnInit {
 
   // APP GERE LA LISTE DES VOITURES SANS ROUTE
   // voitures: Array<Voiture> = [new Voiture("BMW", "X6"), new Voiture("OPEL", "Corsa")];
-  selectedVoitureToPush:Voiture;
+  // selectedVoitureToPush:Voiture;
 
   // APP GERE LA LISTE DES VOITURES SANS ROUTE
   // addVoitureToList(event:Voiture){
   //   this.voitures.push(event);
   // }
 
-  getSelectedVoiture(event:Voiture){
-    this.selectedVoitureToPush = event;
-  }
+  // getSelectedVoiture(event:Voiture){
+  //   this.selectedVoitureToPush = event;
+  // }
 }
